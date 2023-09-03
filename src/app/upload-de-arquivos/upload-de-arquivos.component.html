@@ -1,0 +1,12 @@
+<div *ngIf="isUploading() | async" class="loader-container">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    <p>Enviando arquivo...</p>
+</div>
+
+<div>
+    <h2>Upload de Arquivos XML</h2>
+    <input type="file" (change)="onFileChange($event)" multiple>
+  </div>
+  
+  
+  
