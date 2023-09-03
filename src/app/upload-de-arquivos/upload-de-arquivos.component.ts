@@ -10,36 +10,32 @@ import { Observable } from 'rxjs';
 export class UploadDeArquivosComponent {
   constructor(private uploadService: UploadService) { }
 
-  onFileChange(event: any) {
+  carregarArquivos(event: any) {
     const file = event.target.files[0];
     if (file) {
-      this.uploadService.uploadXmlFile(file).subscribe(
+      this.uploadService.uploadArquivoXML(file).subscribe(
         response => {
           console.log('Upload realizado com sucesso.', response);
-          // Execute ações adicionais após o envio, se necessário
         },
         error => {
           console.error('Falha no upload do arquivo.', error);
-          // Trate erros de envio aqui, se necessário
         }
       );
     }
   }
 
   getDadosConsolidadosPorRegiao() {
-    this.uploadService.getDadosConsolidadosPorRegiao().subscribe(
-      data => {
-        console.log('Dados consolidados por região:', data);
-        // Faça algo com os dados, como exibir no seu componente
+    this.uploadService.getDadosConsolRegiao().subscribe(
+      dado => {
+        console.log('Dados consolidados por região:', dado);
       },
       error => {
-        console.error('Erro ao recuperar dados consolidados por região.', error);
-        // Trate erros de recuperação de dados aqui, se necessário
+        console.error('Falha ao recuperar dados consolidados por região.', error);
       }
     );
   }
 
-  isUploading(): Observable<boolean> {
+  carregando(): Observable<boolean> {
     return this.uploadService.isUploading();
   }
 }
