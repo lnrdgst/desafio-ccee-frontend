@@ -16,9 +16,13 @@ export class UploadDeArquivosComponent {
       this.uploadService.uploadArquivoXML(file).subscribe(
         response => {
           console.log('Upload realizado com sucesso.', response);
+
+
         },
         error => {
           console.error('Falha no upload do arquivo.', error);
+
+
         }
       );
     }
@@ -28,9 +32,13 @@ export class UploadDeArquivosComponent {
     this.uploadService.getDadosConsolRegiao().subscribe(
       dado => {
         console.log('Dados consolidados por região:', dado);
+
+
       },
       error => {
         console.error('Falha ao recuperar dados consolidados por região.', error);
+
+        
       }
     );
   }
